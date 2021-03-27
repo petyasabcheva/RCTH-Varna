@@ -456,34 +456,6 @@ tr:hover {
 
 
 /*blood progress bar*/
-.progress1 {
-    background: rgba(0, 0, 0, 0.1);
-    justify-content: flex-start;
-    border-radius: 100px;
-    align-items: center;
-    position: relative;
-    padding: 0 5px;
-    display: flex;
-    height: 40px;
-    width: 100%;
-}
-
-.progress-value1 {
-    animation: load 3s normal forwards;
-    box-shadow: 0 10px 40px -10px #fff;
-    border-radius: 100px;
-    background: #B61827;
-    height: 30px;
-    width: 0;
-}
-
-    .progress-value1 span {
-        color: #fff;
-        font-size: 14px;
-        text-align: center;
-        display: block;
-    }
-
 
 /*blood bar colors*/
 @keyframes load {
@@ -493,6 +465,8 @@ tr:hover {
 }
 
 .progress {
+    max-width: 95%;
+    margin: auto;
     height: 2rem;
     border-radius: 0.65rem;
     font-size: 1rem;

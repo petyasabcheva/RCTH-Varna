@@ -1,0 +1,92 @@
+﻿@model RCTH.Models.ViewModels.MedResultViewModel
+
+@{
+    ViewData["Title"] = "My Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <partial name="ProfileSidebarPartial" />
+    </div>
+    <div class="donations mb-4">
+        <div class="donations-inner">
+            <header class="donations-header">
+                <div class="title">Изследвания |</div>
+                <div class="count">
+                    @if (@Model.MedResults.Count == 1)
+                    {
+                        <div>
+                            @Model.MedResults.Count Изследвания
+                        </div>
+                    }
+                    else
+                    {
+                        if (Model.MedResults.Count == 0)
+                        {
+                            <div>Няма данни</div>
+                        }
+                        else
+                        {
+                            <div>
+                                @Model.MedResults.Count Изследвания
+                            </div>
+                        }
+
+                    }
+                </div>
+            </header>
+            <table class="donations-table">
+                <thead>
+                    <tr>
+                        <th class="text-center">Id</th>
+                        <th>Дата</th>
+                        <th>Лекар</th>
+                        <th>СПИН/ХИВ</th>
+                        <th>Хепатит B</th>
+                        <th>Хепатит C</th>
+                        <th>Сифилис</th>
+                        <th>PCR</th>
+                    </tr>
+                </thead>
+                @foreach (var donation in Model.MedResults)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <p>@donation.Id</p>
+                        </td>
+                        <td>
+                            <p>@donation.dateReleased</p>
+                        </td>
+                        <td>
+                            @if (donation.Doctor == null)
+                            {
+                                <p>Няма данни</p>
+                            }
+                            else
+                            {
+                                <p>@donation.Doctor</p>
+                            }
+                        </td>
+                        <td>
+                            <p>@donation.HIV</p>
+                        </td>
+                        <td>
+                            <p>@donation.HepatitisB</p>
+                        </td>
+                        <td>
+                            <p>@donation.HepatitisC</p>
+                        </td>
+                        <td>
+                            <p>@donation.Syphilis</p>
+                        </td>
+                        <td>
+                            <p>@donation.PCR</p>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

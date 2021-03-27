@@ -14,3 +14,31 @@ function OverviewForm(event) {
     parentEl.setAttribute('hidden', true);
     document.getElementsByClassName("InfoOverview")[0].removeAttribute('hidden');
 }
+
+function ShowNavbar() {
+    var navbarElement = document.getElementsByClassName("hidden-menu-section")[0]
+    if (navbarElement.style.display == "none") {
+        navbarElement.style.display = "block";
+        scrollPage();
+    } else {
+        navbarElement.style.display = "none";
+    }
+}
+
+function scrollPage() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+}
+
+window.onscroll = function () { someFunction() };
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function someFunction() {
+    if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+    } else {
+        navbar.classList.remove("sticky");
+    }
+}

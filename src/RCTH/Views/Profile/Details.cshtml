@@ -4,37 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h1>Details</h1>
-
-
-
-
-    <br />
-    <h3>@Model.BloodGroup.Name с @(Model.BloodGroup.RhFactor ? '+' : '-') резос фактор</h3>*@
 
 <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-none d-md-block sidebar">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Моят профил
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Моите изследвания
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Настройки
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <partial name="ProfileSidebarPartial"/>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 my-3">
             <div class="card-list">
                 <div class="row">
@@ -99,7 +72,7 @@
                     <table class="donations-table">
                         <thead>
                         <tr>
-                            <th>Id</th>
+                            <th class="text-center">Id</th>
                             <th>Количество</th>
                             <th>Дата</th>
                             <th>Получил</th>
@@ -108,7 +81,7 @@
                         @foreach (var donation in Model.DonationData)
                         {
                             <tr>
-                                <td>
+                                <td class="text-center">
                                     <p>@donation.Id</p>
                                 </td>
                                 <td>

@@ -14,35 +14,84 @@
         <nav>
             <div class="logo-wrapper">
                 <img src="/resources/blood-donation.svg" alt="logo">
-                <h1><a asp-area="" asp-controller="Home" asp-action="Index">РАЙОНЕН ЦЕНТЪР ПО ТРАНФУЗИОННА ХЕМАТОЛОГИЯ-ВАРНА</a></h1>
+                <h1><a class="white" asp-area="" asp-controller="Home" asp-action="Index">РАЙОНЕН ЦЕНТЪР ПО ТРАНФУЗИОННА ХЕМАТОЛОГИЯ-ВАРНА</a></h1>
+            </div>
+            <div class="menu-hidden">
+                <a href="javascript:void(0);" class="icon" onclick="ShowNavbar()">
+                    <i class="fa fa-bars"></i>
+                </a>
             </div>
             <ul class="navigarion-list">
-                <li class="navigarion-list-item">Как да помогна</li>
                 <li class="navigarion-list-item">За нас</li>
                 <li class="navigarion-list-item">
-                    <a asp-area="" asp-controller="Articles" asp-action="All">Статии</a>
+                    <a class="white" asp-area="" asp-controller="Articles" asp-action="All">Статии</a>
                 </li>
                 <li class="navigarion-list-item">
-                    <a asp-area="" asp-controller="Questionnaire" asp-action="Index">Въпросник</a>
+                    <a class="white" asp-area="" asp-controller="Questionnaire" asp-action="Index">Въпросник</a>
                 </li>
                 <li class="navigarion-list-item">
-                    <a asp-area="" asp-controller="Appointments" asp-action="Create">Стани кръводарител</a>
+                    <a class="white" asp-area="" asp-controller="Appointments" asp-action="Create">Стани кръводарител</a>
                 </li>
 
                 <partial name="_LoginPartial" />
             </ul>
         </nav>
+
     </header>
-    <div class="container">
-        <main role="main" class="main-content">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main" class="main-content">
+        <section class="hidden-menu-section">
+            <ul class="navigarion-list">
+                <li class="navigarion-list-item">За нас</li>
+                <li class="navigarion-list-item">
+                    <a class="white" asp-area="" asp-controller="Articles" asp-action="All">Статии</a>
+                </li>
+                <li class="navigarion-list-item">
+                    <a class="white" asp-area="" asp-controller="Questionnaire" asp-action="Index">Въпросник</a>
+                </li>
+                <li class="navigarion-list-item">
+                    <a class="white" asp-area="" asp-controller="Appointments" asp-action="Create">Стани кръводарител</a>
+                </li>
+
+                <partial name="_LoginPartial" />
+            </ul>
+        </section>
+        @RenderBody()
+    </main>
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - BloodDonator - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+        <section class="footer-content">
+            <div class="work-time">
+                <h4>
+                    Работно време с кръводарители
+                </h4>
+                <p>Понеделник – Петък : от 8 до 13 и от 13.30 до 17.30 </p>
+                <p>Събота : от 9 до 14 часа</p>
+                <p>Неделя : почивен ден</p>
+            </div>
+            <div class="contacts">
+                <h4>
+                    Контакти
+                </h4>
+                <h5>Адрес</h5>
+                <p>гр. Варна бул.„Цар Освободител“ № 100</p>
+                <h5>Телефон</h5>
+                <p>052 / 681 810 – Директор</p>
+                <p>052 / 681 811- Деловодство на РЦТХ</p>
+                <h5>Електронна поща</h5>
+                <p> rcth_varna@abv.bg</p>
+            </div>
+            <div class="links">
+                <h4>
+                    Полезни връзки
+                </h4>
+                <a asp-area="" asp-controller="Questionnaire" asp-action="Index">Мога ли да даря кръв?</a>
+                <a asp-area="" asp-controller="Appointments" asp-action="Create">Запази час за дарение</a>
+                <a asp-area="" asp-controller="Articles" asp-action="All">Статии</a>
+                <a asp-area="" asp-controller="Articles" asp-action="All">Събития</a>
+            </div>
+        </section>
+
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
@@ -52,16 +101,5 @@
 
 
 <script>
-    window.onscroll = function () { myFunction() };
-
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
-    }
+    
 </script>

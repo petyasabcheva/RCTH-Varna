@@ -41,6 +41,7 @@ namespace RCTH.Data
                 new BloodGroup() {Id = 7, Name = "AB-"},
                 new BloodGroup() {Id = 8, Name = "0-"}
             );
+            
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);

@@ -1,0 +1,20 @@
+﻿@*<div class="bloodProgress mt-2 mb-2">
+    <div class="progress1">
+        <div class="progress-value1" style="width: 50%"><span class="text-center">Кръвна банка</span></div>
+    </div>
+</div>*@
+
+<div class="progress mt-2 mb-4">
+    <div class="progress-bar bloodcolorA" style="width:@(Model.BloodRatio.PercentageA)%">
+        <span class="text-center">A</span>
+    </div>
+    <div class="progress-bar bloodcolorB"  style="width:@(Model.BloodRatio.PercentageB)%">
+        B
+    </div>
+    <div class="progress-bar bloodcolorAB" style="width:@(Model.BloodRatio.PercentageAB)%">
+        AB
+    </div>
+    <div class="progress-bar bloodcolor0" style="width:@(Model.BloodRatio.Percentage0)%">
+        0
+    </div>
+</div>

@@ -30,6 +30,7 @@ namespace RCTH
             services.AddDbContext<RCTHContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("RCTHContextConnection")));
             services.AddDefaultIdentity<RCTHUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<RCTHContext>();
             services.AddControllersWithViews();
             services.AddRazorPages()

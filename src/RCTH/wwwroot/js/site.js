@@ -17,6 +17,10 @@ function OverviewForm(event) {
 
 function ShowNavbar() {
     var navbarElement = document.getElementsByClassName("hidden-menu-section")[0]
+    if (navbarElement.style.display == "") {
+        navbarElement.style.display = "none";
+    }
+
     if (navbarElement.style.display == "none") {
         navbarElement.style.display = "block";
         scrollPage();

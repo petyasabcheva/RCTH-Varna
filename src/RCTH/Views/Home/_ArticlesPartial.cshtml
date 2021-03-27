@@ -3,18 +3,18 @@
     this.ViewData["Title"] = "All Blog Articles ";
 }
 
-<div>
+<ul class="home-articles-list">
     @foreach (var article in this.Model.Articles)
-    {
-        <div >
-            <h3>
-                @article.Title
-            </h3>
-            <p>@article.ShortContent</p>
-            <p>@article.AuthorName</p>
+    { 
+    <li>
+        <h3>
+            @article.Title
+        </h3>
+        <p>@article.ShortContent</p>
+        <p>@article.AuthorName</p>
 
-            <a asp-action="ById" asp-route-id="@article.Id">Details</a>
-        </div>
+        <a asp-controller="Articles" asp-action="ById" asp-route-id="@article.Id">Details</a>
+    </li>
     }
-</div>
+</ul>
 

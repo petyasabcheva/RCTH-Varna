@@ -1,10 +1,9 @@
-﻿@model RCTH.Models.ViewModels.ArticleListViewModel;
-@{
+﻿@{
     this.ViewData["Title"] = "All Blog Articles ";
 }
 
 <div>
-    @foreach (var article in this.Model.Articles)
+    @foreach (var article in this.Model.ArticleList.Articles)
     {
         <div >
             <h3>

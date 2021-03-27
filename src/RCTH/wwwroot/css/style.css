@@ -278,15 +278,9 @@ header ul li:hover {
 }
 
 .donations {
-    background-color: #486399;
-    border: 1px solid #79A6FF;
+    background-color: #B61827;
     overflow-x: auto;
     width: 100%;
-}
-
-.projects-header {
-    color: white;
-    padding: 22px;
 }
 
 .count, .title {
@@ -320,18 +314,98 @@ td p {
 }
 
 th {
-    background-color: #d6ebef;
+    background-color: #FF867C;
 }
 
 tr:hover {
-    background-color: #bce8f0;
+    background-color: #EF5350;
 }
 
 .donations-header {
-    background-color: #abd3dd
+    background-color: #B61827
 }
 
 .questions{
     max-width:80%;
     margin:auto;
+}
+
+.nav-item {
+    background-color: #4BA3C7
+}
+.nav-item:hover {
+    background-color: #326C84;
+    color: #000000
+}
+.nav-sidebar a {
+    text-decoration: none
+}
+
+.nav-sidebar {
+    display: block;
+    padding: .5rem 1rem;
+    text-decoration: none;
+    color: #000000
+}
+
+
+/*blood progress bar*/
+.progress1 {
+    background: rgba(0, 0, 0, 0.1);
+    justify-content: flex-start;
+    border-radius: 100px;
+    align-items: center;
+    position: relative;
+    padding: 0 5px;
+    display: flex;
+    height: 40px;
+    width: 100%;
+}
+
+.progress-value1 {
+    animation: load 3s normal forwards;
+    box-shadow: 0 10px 40px -10px #fff;
+    border-radius: 100px;
+    background: #B61827;
+    height: 30px;
+    width: 0;
+}
+
+.progress-value1 span {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+}
+
+
+/*blood bar colors*/
+@keyframes load {
+    0% {
+        width: 0;
+    }
+}
+.progress {
+    height: 2rem;
+    border-radius: 0.65rem;
+    font-size: 1rem;
+}
+.progress-bar {
+    animation: load 3s normal forwards;
+}
+
+.bloodcolorA {
+    background-color: #e50000;
+}
+
+.bloodcolorB {
+    background-color: #e50000;
+}
+
+.bloodcolorAB {
+    background-color: #ff4c4c;
+}
+
+.bloodcolor0 {
+    background-color: #ff9999;
 }

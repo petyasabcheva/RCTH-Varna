@@ -16,7 +16,12 @@
                 <img src="/resources/blood-donation.svg" alt="logo">
                 <h1><a class="white" asp-area="" asp-controller="Home" asp-action="Index">РАЙОНЕН ЦЕНТЪР ПО ТРАНФУЗИОННА ХЕМАТОЛОГИЯ-ВАРНА</a></h1>
             </div>
-            <ul class="navigarion-list">
+            <div class="menu-hidden">
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            <ul class="navigarion-list class="topnav" id="myTopnav"">
                 @*<li class="navigarion-list-item">Как да помогна</li>*@
                 <li class="navigarion-list-item">За нас</li>
                 <li class="navigarion-list-item">
@@ -32,6 +37,7 @@
                 <partial name="_LoginPartial" />
             </ul>
         </nav>
+
     </header>
         <main role="main" class="main-content">
             @RenderBody()
@@ -51,7 +57,7 @@
                         Контакти
                     </h4>
                     <h5>Адрес</h5>
-                    <p>: гр. Варна бул.„Цар Освободител“ № 100</p>
+                    <p>гр. Варна бул.„Цар Освободител“ № 100</p>
                     <h5>Телефон</h5>
                     <p>052 / 681 810 – Директор</p>
                     <p>052 / 681 811- Деловодство на РЦТХ</p>
@@ -80,12 +86,12 @@
 
 
 <script>
-    window.onscroll = function () { myFunction() };
+    window.onscroll = function () { someFunction() };
 
     var navbar = document.getElementById("navbar");
     var sticky = navbar.offsetTop;
 
-    function myFunction() {
+    function someFunction() {
         if (window.pageYOffset >= sticky) {
             navbar.classList.add("sticky")
         } else {
@@ -93,3 +99,14 @@
         }
     }
 </script>
+
+@*<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>*@

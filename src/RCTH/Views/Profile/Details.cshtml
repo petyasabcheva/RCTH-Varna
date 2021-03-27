@@ -1,0 +1,132 @@
+﻿@model RCTH.Models.ViewModels.ProfileDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h1>Details</h1>
+
+
+
+
+    <br />
+    <h3>@Model.BloodGroup.Name с @(Model.BloodGroup.RhFactor ? '+' : '-') резос фактор</h3>*@
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Моят профил
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Настройки
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 my-3">
+            <div class="card-list">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+
+                        @if (DateTime.Now >= @Model.MinDateNextDonation || @Model.MinDateNextDonation == null)
+                        {
+                            <div class="card green">
+                                <h3>Имате възможност за кръводарение</h3>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="card grey">
+                                <h3>Възможност за дарение след @Model.MinDateNextDonation</h3>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                        <div class="card red">
+                            <p>Кръвна група:</p>
+                            @if (Model.BloodGroup == null)
+                            {
+                                <p>Неизвестна</p>
+                            }
+                            else
+                            {
+                                <p>@Model.BloodGroup.Name @(Model.BloodGroup.RhFactor ? '+' : '-')</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="donations mb-4">
+                <div class="donations-inner">
+                    <header class="donations-header">
+                        <div class="title">Дарения |</div>
+                        <div class="count">
+                            @if (@Model.DonationData.Count == 1)
+                            {
+                            <div>
+                                @Model.DonationData.Count Дарение
+                            </div>
+                            }
+                            else
+                            {
+                                if (Model.DonationData.Count == 0)
+                                {
+                                    <div>Няма данни</div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        @Model.DonationData.Count Дарения
+                                    </div>
+                                }
+                                
+                            }
+                        </div>
+                    </header>
+                    <table class="donations-table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Количество</th>
+                            <th>Дата</th>
+                            <th>Получил</th>
+                        </tr>
+                        </thead>
+                        @foreach (var donation in Model.DonationData)
+                        {
+                            <tr>
+                                <td>
+                                    <p>@donation.Id</p>
+                                </td>
+                                <td>
+                                    <p>@donation.Quantity ml</p>
+                                </td>
+                                <td>
+                                    <p>@donation.Date</p>
+                                </td>
+                                <td>
+                                    @if (@donation.Receiver == null)
+                                    {
+                                        <p>Неизвестен</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@donation.Receiver</p>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

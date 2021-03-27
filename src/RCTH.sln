@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCTH", "RCTH\RCTH.csproj", "{52D58693-DFA7-45AF-9682-CEED1C431182}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RCTH", "RCTH\RCTH.csproj", "{CED2B9BB-7137-4C3D-9A92-674533531C65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{52D58693-DFA7-45AF-9682-CEED1C431182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52D58693-DFA7-45AF-9682-CEED1C431182}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52D58693-DFA7-45AF-9682-CEED1C431182}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52D58693-DFA7-45AF-9682-CEED1C431182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED2B9BB-7137-4C3D-9A92-674533531C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED2B9BB-7137-4C3D-9A92-674533531C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED2B9BB-7137-4C3D-9A92-674533531C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED2B9BB-7137-4C3D-9A92-674533531C65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F12CC8A8-A798-44F6-9129-72FF6194C44B}
+		SolutionGuid = {0229ADF3-71EF-48BA-9916-4B7ACC062E3C}
 	EndGlobalSection
 EndGlobal

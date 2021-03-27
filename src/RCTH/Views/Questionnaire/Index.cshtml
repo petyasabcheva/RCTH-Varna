@@ -1,194 +1,229 @@
-﻿<section class="questions">
-   <h1>Моля отговорете на тези въпроси, за да разберете дали можете да дарите кръв</h1>
-    
-    <form action="">
+﻿@model RCTH.Models.ViewModels.QuestionnaireInputModel;
+<section class="questions">
+    <h1>Моля отговорете на тези въпроси, за да разберете дали можете да дарите кръв</h1>
+
+    <form method="post" asp-controller="Questionnaire" asp-action="Index">
         <label for="age">
             Възраст:
-            <input type="number">
+            <input asp-for="Age" type="number">
+            <span asp-validation-for="Age" class="text-danger"></span>
+
         </label>
-        <label for="age">
+        <label for="weight">
             Тегло:
-            <input type="number">
+            <input asp-for="Weight" for="age" type="number">
+            <span asp-validation-for="Weight" class="text-danger"></span>
         </label>
         <div>
             Чувствате ли се здрав?:
-            <input type="radio" id="yes" name="healthy" value="yes">
+            <input asp-for="Healthy" type="radio" id="yes" name="healthy" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="healthy" value="female">
+            <input asp-for="Healthy" type="radio" id="no" name="healthy" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Healthy" class="text-danger"></span>
+
         </div>
         <div>
-            Давали ли сте досега кръв? Ако ДА, кога за последен път?:
-            <input type="radio" id="yes" name="question3" value="yes">
+            Давали ли сте досега кръв? @*Ако ДА, кога за последен път?:*@
+            <input asp-for="Question3"  type="radio" id="yes" name="question3" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question3" value="female">
+            <input asp-for="Question3" type="radio" id="no" name="question3" value="false">
             <label for="no">Не</label>
-            <input type="date" name="date">
-            <label for="date"></label>
+            @*<input type="date" name="date">
+            <label for="date"></label>*@
+            <span asp-validation-for="Question3" class="text-danger"></span>
         </div>
         <div>
             Имате ли рискови професии или хобита?
-            <input type="radio" id="yes" name="question4" value="yes">
+            <input asp-for="Question4" type="radio" id="yes" name="question4" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question4" value="female">
+            <input asp-for="Question4" type="radio" id="no" name="question4" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question4" class="text-danger"></span>
+
         </div>
         <div>
             За жени- била ли сте бременна през последната година?
-            <input type="radio" id="yes" name="question5" value="yes">
+            <input asp-for="Question5" type="radio" id="yes" name="question5" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question5" value="female">
+            <input asp-for="Question5" type="radio" id="no" name="question5" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question5" class="text-danger"></span>
         </div>
         <div>
             Казвали ли са Ви по рано, че не бива да дарявате кръв?
-            <input type="radio" id="yes" name="question6" value="yes">
+            <input asp-for="Question6" type="radio" id="yes" name="question6" value="yes">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question6" value="female">
+            <input asp-for="Question6" type="radio" id="no" name="question6" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question6" class="text-danger"></span>
         </div>
         <div>
-            Преливали ли са Ви кръв и други кръвни състаавки? Ако ДА, кога?
-            <input type="radio" id="yes" name="question7" value="yes">
+            Преливали ли са Ви кръв и други кръвни състаавки? @*Ако ДА, кога?*@
+            <input asp-for="Question7" type="radio" id="yes" name="question7" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question7" value="female">
+            <input asp-for="Question7" type="radio" id="no" name="question7" value="false">
             <label for="no">Не</label>
-            <input type="date" name="date">
-            <label for="date"></label>
+            <span asp-validation-for="Question7" class="text-danger"></span>
+            @*<input type="date" name="date">
+        <label for="date"></label>*@
         </div>
         <div>
             Имали ли сте напоследък немотивирана температура,отслабване на тегло, увеличаване на лимфни възли?
-            <input type="radio" id="yes" name="question8" value="yes">
+            <input asp-for="Question8" type="radio" id="yes" name="question8" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question8" value="female">
+            <input asp-for="Question8" type="radio" id="no" name="question8" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question8" class="text-danger"></span>
         </div>
         <div>
             Приемате ли в момента лекарства, включително аспирин?
-            <input type="radio" id="yes" name="question9" value="yes">
+            <input asp-for="Question9" type="radio" id="yes" name="question9" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question9" value="female">
+            <input asp-for="Question9" type="radio" id="no" name="question9" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question9" class="text-danger"></span>
         </div>
         <div>
             Имате ли скорошни имунизации, зъболечение?
-            <input type="radio" id="yes" name="question10" value="yes">
+            <input asp-for="Question10" type="radio" id="yes" name="question10" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question10" value="female">
+            <input asp-for="Question10" type="radio" id="no" name="question10" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question10" class="text-danger"></span>
         </div>
         <div>
             <p>От последното ви даряване или предшестващите 12 месеца имали ли сте:</p>
             <div>
                 Хирургична интервенция?
-                <input type="radio" id="yes" name="question11" value="yes">
+                <input asp-for="Question11" type="radio" id="yes" name="question11" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question11" value="female">
+                <input asp-for="Question11" type="radio" id="no" name="question11" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question11" class="text-danger"></span>
             </div>
             <div>
                 Татуировка, боди пирсинг, акупунктура?
-                <input type="radio" id="yes" name="question12" value="yes">
+                <input asp-for="Question12" type="radio" id="yes" name="question12" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question12" value="female">
+                <input asp-for="Question12" type="radio" id="no" name="question12" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question12" class="text-danger"></span>
+
             </div>
             <div>
                 Случайно нараняване, включващо експозиция с кръв чрез убождане с игла или през мукозни мембрани?
-                <input type="radio" id="yes" name="question13" value="yes">
+                <input asp-for="Question13" type="radio" id="yes" name="question13" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question13" value="female">
+                <input asp-for="Question13" type="radio" id="no" name="question13" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question13" class="text-danger"></span>
             </div>
         </div>
         <div>
             <p>Боледували ли сте от:</p>
             <div>
                 Жълтеница
-                <input type="radio" id="yes" name="question4" value="yes">
+                <input asp-for="Question14" type="radio" id="yes" name="question14" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question4" value="female">
+                <input asp-for="Question14" type="radio" id="no" name="question14" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question14" class="text-danger"></span>
+
             </div>
             <div>
                 Малария
-                <input type="radio" id="yes" name="question4" value="yes">
+                <input asp-for="Question15" type="radio" id="yes" name="question15" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question4" value="female">
+                <input asp-for="Question15" type="radio" id="no" name="question15" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question15" class="text-danger"></span>
             </div>
             <div>
                 Туберкулоза
-                <input type="radio" id="yes" name="question4" value="yes">
+                <input asp-for="Question16" type="radio" id="yes" name="question16" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question4" value="female">
+                <input asp-for="Question16" type="radio" id="no" name="question16" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question16" class="text-danger"></span>
             </div>
             <div>
                 Ревматизъм
-                <input type="radio" id="yes" name="question4" value="yes">
+                <input asp-for="Question17" type="radio" id="yes" name="question17" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question4" value="female">
+                <input asp-for="Question17" type="radio" id="no" name="question17" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question17" class="text-danger"></span>
             </div>
             <div>
                 Сърдечно заболяване, високо или ниско кръвно налягане?
-                <input type="radio" id="yes" name="question4" value="yes">
+                <input asp-for="Question18" type="radio" id="yes" name="question18" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question4" value="female">
+                <input asp-for="Question18" type="radio" id="no" name="question18" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question18" class="text-danger"></span>
             </div>
             <div>
                 Алергия, астма
-                <input type="radio" id="yes" name="question4" value="yes">
+                <input asp-for="Question19" type="radio" id="yes" name="question19" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question4" value="female">
+                <input asp-for="Question19" type="radio" id="no" name="question19" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question19" class="text-danger"></span>
             </div>
             <div>
                 Гърчове или заболявания като диабет или други ендокринни заболявания
-                <input type="radio" id="yes" name="question4" value="yes">
+                <input asp-for="Question20" type="radio" id="yes" name="question20" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question4" value="female">
+                <input asp-for="Question20" type="radio" id="no" name="question20" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question20" class="text-danger"></span>
             </div>
             <div>
                 Злокачествени заболявания
-                <input type="radio" id="yes" name="question4" value="yes">
+                <input asp-for="Question21" type="radio" id="yes" name="question21" value="true">
                 <label for="yes">Да</label>
-                <input type="radio" id="no" name="question4" value="female">
+                <input asp-for="Question21" type="radio" id="no" name="question21" value="false">
                 <label for="no">Не</label>
+                <span asp-validation-for="Question21" class="text-danger"></span>
             </div>
         </div>
         <div>
             Инжектирали ли сте си някога наркотици?
-            <input type="radio" id="yes" name="question14" value="yes">
+            <input asp-for="Question22" type="radio" id="yes" name="question22" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question14" value="female">
+            <input asp-for="Question22" type="radio" id="no" name="question22" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question22" class="text-danger"></span>
         </div>
         <div>
             Преценявате ли, че сте имали поведение, излагащо Ви на риск от заразяване от СПИН и други болести, предаващи се по полов и/или кръвен път (случайни полови контакти, честа смяна на сексуалните партньори, сексуални контакти с проституиращи или наркомани?
-            <input type="radio" id="yes" name="question15" value="yes">
+            <input asp-for="Question23" type="radio" id="yes" name="question23" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question15" value="female">
+            <input asp-for="Question23" type="radio" id="no" name="question23" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question23" class="text-danger"></span>
         </div>
         <div>
             Имали ли сте контакт с хепатит(в семейна или професионална среда)?
-            <input type="radio" id="yes" name="question16" value="yes">
+            <input asp-for="Question24" type="radio" id="yes" name="question24" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question16" value="female">
+            <input asp-for="Question24" type="radio" id="no" name="question24" value="false">
             <label for="no">Не</label>
+            <span asp-validation-for="Question24" class="text-danger"></span>
         </div>
         <div>
             Роден ли сте или живял ли сте и/или пътували в чужбина?
-            <input type="radio" id="yes" name="question17" value="yes">
+            <input asp-for="Question25" type="radio" id="yes" name="question25" value="true">
             <label for="yes">Да</label>
-            <input type="radio" id="no" name="question17" value="female">
+            <input asp-for="Question25" type="radio" id="no" name="question25" value="false">
             <label for="no">Не</label>
-            <input type="date" name="date">
-            <label for="date"></label>
+            @*<input type="date" name="date">
+        <label for="date"></label>*@
+            <span asp-validation-for="Question25" class="text-danger"></span>
         </div>
+
+        <button type="submit" class="btn btn-success">Потвърди</button>
+
     </form>
 </section>

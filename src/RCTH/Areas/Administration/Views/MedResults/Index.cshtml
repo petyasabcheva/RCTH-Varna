@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Изследвания</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Добави</a>
 </p>
 <table class="table">
     <thead>
@@ -18,6 +18,24 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.dateReleased)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HIV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HepatitisB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HepatitisC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Syphilis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PCR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
             </th>
             <th></th>
         </tr>
@@ -32,9 +50,27 @@
                 @Html.DisplayFor(modelItem => item.dateReleased)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                @Html.DisplayFor(modelItem => item.HIV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HepatitisB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HepatitisC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Syphilis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PCR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редактирай</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Информация</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Изтрий</a>
             </td>
         </tr>
 }

@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
@@ -32,7 +32,14 @@ namespace RCTH
             services.AddDefaultIdentity<RCTHUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<RCTHContext>();
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages()
+    .AddMvcOptions(options =>
+    {
+        options.MaxModelValidationErrors = 50;
+        options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(
+            _ => "Моля попълнете");
+    });
+
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;

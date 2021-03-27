@@ -51,7 +51,6 @@ namespace RCTH.Areas.Administration.Controllers
         public IActionResult Create()
         {
             ViewData["BloodGroupId"] = new SelectList(_context.BloodGroups, "Id", "Name");
-            ViewData["UserId"] = new SelectList(_context.RCTHUsers, "Id", "Id");
             return View();
         }
 
@@ -60,16 +59,17 @@ namespace RCTH.Areas.Administration.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserId,EGN,dateDonated,Quantity,BloodGroupId,Receiver")] Donation donation)
+        public async Task<IActionResult> Create([Bind("Id,EGN,dateDonated,Quantity,BloodGroupId,Receiver")] Donation donation)
         {
             if (ModelState.IsValid)
             {
+                var EGNcheck = _context.RCTHUsers.FirstOrDefault(u => u.EGN == donation.EGN);
+                donation.UserId = EGNcheck == null ? null : EGNcheck.Id;
                 _context.Add(donation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BloodGroupId"] = new SelectList(_context.BloodGroups, "Id", "Name", donation.BloodGroupId);
-            ViewData["UserId"] = new SelectList(_context.RCTHUsers, "Id", "Id", donation.UserId);
             return View(donation);
         }
 
@@ -87,7 +87,6 @@ namespace RCTH.Areas.Administration.Controllers
                 return NotFound();
             }
             ViewData["BloodGroupId"] = new SelectList(_context.BloodGroups, "Id", "Name", donation.BloodGroupId);
-            ViewData["UserId"] = new SelectList(_context.RCTHUsers, "Id", "Id", donation.UserId);
             return View(donation);
         }
 
@@ -96,7 +95,7 @@ namespace RCTH.Areas.Administration.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,EGN,dateDonated,Quantity,BloodGroupId,Receiver")] Donation donation)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,EGN,dateDonated,Quantity,BloodGroupId,Receiver")] Donation donation)
         {
             if (id != donation.Id)
             {
@@ -107,6 +106,8 @@ namespace RCTH.Areas.Administration.Controllers
             {
                 try
                 {
+                    var EGNcheck = _context.RCTHUsers.FirstOrDefault(u => u.EGN == donation.EGN);
+                    donation.UserId = EGNcheck == null ? null : EGNcheck.Id;
                     _context.Update(donation);
                     await _context.SaveChangesAsync();
                 }
@@ -124,7 +125,6 @@ namespace RCTH.Areas.Administration.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BloodGroupId"] = new SelectList(_context.BloodGroups, "Id", "Name", donation.BloodGroupId);
-            ViewData["UserId"] = new SelectList(_context.RCTHUsers, "Id", "Id", donation.UserId);
             return View(donation);
         }
 

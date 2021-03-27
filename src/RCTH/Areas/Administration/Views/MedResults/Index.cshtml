@@ -19,6 +19,24 @@
             <th>
                 @Html.DisplayNameFor(model => model.dateReleased)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HIV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HepatitisB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HepatitisC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Syphilis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PCR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -30,6 +48,24 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.dateReleased)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HIV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HepatitisB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HepatitisC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Syphilis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PCR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doctor)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Редактирай</a> |

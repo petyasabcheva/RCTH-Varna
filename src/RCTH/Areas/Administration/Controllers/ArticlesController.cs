@@ -57,6 +57,7 @@ namespace RCTH.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Content,AuthorName,DateCreated")] Article article)
         {
+            article.DateCreated = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(article);

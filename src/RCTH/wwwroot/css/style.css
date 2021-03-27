@@ -330,3 +330,8 @@ tr:hover {
 .donations-header {
     background-color: #abd3dd
 }
+
+.questions{
+    max-width:80%;
+    margin:auto;
+}

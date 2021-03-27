@@ -1,0 +1,27 @@
+﻿@using System.Security.Principal
+
+@if (User.Identity.IsAuthenticated)
+{
+    <li class="navigarion-list-item">
+        <div class="dropdown">
+            <button class="dropdown-btn-custom dropbtn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Моят профил
+            </button>
+            <div class="dropdown-content">
+                <a class="" asp-area="" asp-controller="Profile" asp-action="Details">Профил</a>
+                @*<a class="" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new { area = string.Empty }))">Изход</a>*@
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new { area = string.Empty }))">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Изход</button>
+                </form>
+            </div>
+        </div>
+    </li>
+}
+
+else
+{
+    <li class="navigarion-list-item">
+        <a  asp-area="Identity" asp-page="/Account/Login">Вход</a>
+    </li>
+}
+

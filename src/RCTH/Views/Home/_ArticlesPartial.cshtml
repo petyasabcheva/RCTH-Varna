@@ -2,18 +2,20 @@
     this.ViewData["Title"] = "All Blog Articles ";
 }
 
-<div>
-    @foreach (var article in this.Model.ArticleList.Articles)
-    {
-        <div >
-            <h3>
-                @article.Title
-            </h3>
-            <p>@article.ShortContent</p>
-            <p>@article.AuthorName</p>
+<section class="home-articles-section">
+    <h2>Последни статии</h2>
+    <ul class="home-articles-list">
+        @foreach (var article in this.Model.ArticleList.Articles)
+        {
+        <li>
+            <a asp-controller="Articles" asp-action="ById" asp-route-id="@article.Id">
+                <h3>
+                    @article.Title
+                </h3>
+                <p>@article.ShortContent</p>
+            </a>
+        </li>
+        }
+    </ul>
 
-            <a asp-action="ById" asp-route-id="@article.Id">Details</a>
-        </div>
-    }
-</div>
-
+</section>

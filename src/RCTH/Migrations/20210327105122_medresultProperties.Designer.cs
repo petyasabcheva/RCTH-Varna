@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RCTH.Data;
 
 namespace RCTH.Migrations
 {
     [DbContext(typeof(RCTHContext))]
-    partial class RCTHContextModelSnapshot : ModelSnapshot
+    [Migration("20210327105122_medresultProperties")]
+    partial class medresultProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -214,51 +216,12 @@ namespace RCTH.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("RhFactor")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("BloodGroups");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "A+"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "B+"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "AB+"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "0+"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "A-"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "B-"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "AB-"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "0-"
-                        });
                 });
 
             modelBuilder.Entity("RCTH.Areas.Identity.Data.Donation", b =>

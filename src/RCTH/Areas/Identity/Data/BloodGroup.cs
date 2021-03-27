@@ -11,9 +11,6 @@ namespace RCTH.Areas.Identity.Data
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
-        public bool RhFactor { get; set; }
-
 
     }
 }

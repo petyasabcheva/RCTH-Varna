@@ -46,3 +46,18 @@ function someFunction() {
         navbar.classList.remove("sticky");
     }
 }
+
+function ProcedeQuestionForm(event) {
+    //hide current section
+    var parentElement = event.currentTarget.parentElement.parentElement;
+    parentElement.style.display = "none";
+    //show next section
+    var nextSection = parentElement.nextElementSibling;
+    nextSection.style.display = "block";
+}
+
+function startQuestionnaire() {
+    document.getElementById("startSection").style.display = "none"
+    var firstSegment = document.getElementsByClassName("questionnaireSegment1")[0];
+    firstSegment.style.display = "block";
+}

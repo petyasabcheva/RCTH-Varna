@@ -4,9 +4,9 @@
 {
     @if (User.IsInRole("Admin"))
     {
-        <button class="btn" type="button" id="adminMenuButton">
-            <a asp-area="" asp-controller="Admin" asp-action="AdminRedirect">Админ</a>
-        </button>
+        <li class="navigarion-list-item">
+            <a class="nav-anchor-btn white" asp-area="" asp-controller="Admin" asp-action="AdminRedirect">Админ</a>
+        </li>
     }
     <li class="navigarion-list-item">
         <div class="dropdown">

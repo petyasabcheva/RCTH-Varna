@@ -4,17 +4,25 @@
 }
 
 <div class="all-articles-wrapper">
+    @if (!Model.Articles.Any())
+    {
+    <h3>
+       Все още няма добавени статии
+    </h3>
+    }
     @foreach (var article in this.Model.Articles)
     {
-    <div class="article-wrapper">
-        <h3>
-            @article.Title
-        </h3>
-        <p>@article.Content</p>
-        <p>@article.AuthorName</p>
 
-        <a asp-action="ById" asp-route-id="@article.Id">Details</a>
-    </div>
+        <a asp-action="ById" asp-route-id="@article.Id">
+            <div class="article-wrapper">
+                <h3>
+                    @article.Title
+                </h3>
+                <p>@article.ShortContent</p>
+                @*<p>@article.AuthorName</p>*@
+
+            </div>
+        </a>
     }
 </div>
 

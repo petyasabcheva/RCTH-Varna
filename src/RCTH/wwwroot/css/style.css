@@ -260,17 +260,21 @@ footer {
 .article-wrapper {
     padding: 40px;
     border-bottom: 2px solid gray;
-    display: flex;
+    /*    display: flex;
+    flex-direction:column;*/
     justify-content: space-between;
     align-items: center;
 }
 
-    .article-wrapper p,
+    .article-wrapper p {
+        text-decoration: none;
+        color: black;
+    }
+    /*    .article-wrapper p,
     .article-wrapper h3,
     .article-wrapper a {
         width: 20%;
-    }
-
+    }*/
     .article-wrapper:hover {
         background: #e5f1fe;
     }
@@ -546,17 +550,17 @@ tr:hover {
 
 /*appointments for plasma donation*/
 
-.make-appointment-form{
-    display:flex;
-    flex-direction:column;
+.make-appointment-form {
+    display: flex;
+    flex-direction: column;
 }
 
-.make-appointment-form input{
-    margin:10px 0;
-    border-radius:5px;
-    border:none;
-    padding:8px;
-}
+    .make-appointment-form input {
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+        padding: 8px;
+    }
 
     .make-appointment-form button, .make-appointment-form button:focus {
         margin-top: 30px;
@@ -565,6 +569,17 @@ tr:hover {
         border: none;
         background: #4BA3C7;
         color: white;
+        outline: none;
+    }
+
+/*Contacts*/
+/*.map-wrapper {
+    margin-bottom: 50px;
+}
+*/
+.contacts-wrapper div {
+    margin-top: 50px;
+}
         outline:none;
     }
 

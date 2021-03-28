@@ -1,8 +1,8 @@
 ﻿@model RCTH.Models.ViewModels.QuestionnaireInputModel;
 <section class="questionnaire">
     <div id="startSection" class="text-center">
-        <h1 class="text-center">Моля отговорете на тези въпроси, за да разберете дали можете да дарите кръв</h1>
-        <button onclick="startQuestionnaire()" type="button" class="btn btn-success mt-3">Начало на анкетата</button>
+        <h2 class="text-center">Моля отговорете на тези въпроси, за да разберете дали можете да дарите кръв</h2>
+        <button onclick="startQuestionnaire()" type="button" class="questionnaire-btn">Начало на анкетата</button>
     </div>
     <form method="post" asp-controller="Questionnaire" asp-action="Index">
         <div class="questionnaireSegment1 hiddenSegment">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button onclick="ProcedeQuestionForm(event)" type="button" class="btn btn-success continueButton">Продължи</button>
+                <button onclick="ProcedeQuestionForm(event)" type="button" class="questionnaire-btn">Продължи</button>
             </div>
         </div>
         <div class="questionnaireSegment2 hiddenSegment">
@@ -104,7 +104,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button onclick="ProcedeQuestionForm(event)" type="button" class="btn btn-success">Продължи</button>
+                <button onclick="ProcedeQuestionForm(event)" type="button" class="questionnaire-btn">Продължи</button>
             </div>
         </div>
         <div class="questionnaireSegment3 hiddenSegment">
@@ -137,7 +137,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button onclick="ProcedeQuestionForm(event)" type="button" class="btn btn-success">Продължи</button>
+                <button onclick="ProcedeQuestionForm(event)" type="button" class="questionnaire-btn">Продължи</button>
             </div>
         </div>
         <div class="questionnaireSegment4 hiddenSegment">
@@ -210,7 +210,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button onclick="ProcedeQuestionForm(event)" type="button" class="btn btn-success">Продължи</button>
+                <button onclick="ProcedeQuestionForm(event)" type="button" class="questionnaire-btn">Продължи</button>
             </div>
         </div>
         <div class="questionnaireSegment5 hiddenSegment">
@@ -251,7 +251,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-success">Изпрати</button>
+                <button type="submit" class="questionnaire-btn">Изпрати</button>
             </div>
         </div>
 

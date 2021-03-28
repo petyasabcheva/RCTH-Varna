@@ -1,20 +1,22 @@
 ﻿@{
     this.ViewData["Title"] = "Admin Redirect";
 }
-
-<h1> buttons which redirect to admin section</h1>
-
-<div class="redirectButtons btn-group-vertical">
-    <button type="button" class="btn btn-primary">
-        <a asp-area="Administration" asp-controller="Donations" asp-action="Index">Кръводарения</a>
-    </button>
-    <button type="button" class="btn btn-primary">
-        <a asp-area="Administration" asp-controller="MedResults" asp-action="Index">Изследвания</a>
-    </button>
-    <button type="button" class="btn btn-primary">
-        <a asp-area="Administration" asp-controller="Events" asp-action="Index">Събития</a>
-    </button>
-    <button type="button" class="btn btn-primary">
-        <a asp-area="Administration" asp-controller="Articles" asp-action="Index">Статии</a>
-    </button>
+<div class="text-center mb-4">
+    <h2>Администрация:</h2>
+</div>
+<div class="text-center">
+    <div class="redirectButtons btn-group-vertical">
+        <li class="navigarion-list-item">
+            <a asp-area="Administration" asp-controller="Donations" asp-action="Index">Кръводарения</a>
+        </li>
+        <li class="navigarion-list-item">
+            <a asp-area="Administration" asp-controller="MedResults" asp-action="Index">Изследвания</a>
+        </li>
+        <li class="navigarion-list-item">
+            <a asp-area="Administration" asp-controller="Events" asp-action="Index">Събития</a>
+        </li>
+        <li class="navigarion-list-item">
+            <a asp-area="Administration" asp-controller="Articles" asp-action="Index">Статии</a>
+        </li>
+    </div>
 </div>

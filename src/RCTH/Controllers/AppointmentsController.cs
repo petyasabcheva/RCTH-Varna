@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using RCTH.Areas.Identity.Data;
 using RCTH.Data;
 using RCTH.ViewModels;
+using RCTH.Models.ViewModels;
 
 namespace RCTH.Controllers
 {
@@ -21,34 +22,46 @@ namespace RCTH.Controllers
             return View("AppointmentForm");
         }
         [HttpPost]
-        public IActionResult RegisterDonationRequestNonAuthenticated(UserDonatorViewModel inputData)
+        public IActionResult Create(AppointmentInputModel input)
         {
-            Appointment newAppointment = new Appointment();
-            newAppointment.FirstName = inputData.FirstName;
-            newAppointment.LastName = inputData.LastName;
-            newAppointment.PhoneNumber = inputData.PhoneNumber;
-            db.Appointments.Add(newAppointment);
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+            var appointment = new Appointment()
+            {
+                FirstName = input.FirstName,
+                LastName = input.LastName,
+                PhoneNumber = input.PhoneNumber,
+                DateAndTime = input.DateAndTime
+            };
+            db.Appointments.Add(appointment);
             db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return this.Redirect("AppointmentCreated");
         }
-        [HttpPost]
-        public IActionResult RegisterDonationRequestAuthenticated(UserDonatorViewModel inputData)
+        public IActionResult AppointmentCreated()
         {
-            Appointment newAppointment = new Appointment();
-            newAppointment.PhoneNumber = inputData.PhoneNumber;
-            var userData = db.Users
-                .Where(u => u.UserName == User.Identity.Name)
-                .Select(u => new
-                {
-                    FirstName = u.FirstName,
-                    LastName = u.LastName
-                })
-                .FirstOrDefault();
-            newAppointment.FirstName = userData.FirstName;
-            newAppointment.LastName = userData.LastName;
-            db.Appointments.Add(newAppointment);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return View("AppointmentCreated");
         }
+
+        //[HttpPost]
+        //public IActionResult RegisterDonationRequestAuthenticated(CreateAppointmentInputModel inputData)
+        //{
+        //    Appointment newAppointment = new Appointment();
+        //    newAppointment.PhoneNumber = inputData.PhoneNumber;
+        //    var userData = db.Users
+        //        .Where(u => u.UserName == User.Identity.Name)
+        //        .Select(u => new
+        //        {
+        //            FirstName = u.FirstName,
+        //            LastName = u.LastName
+        //        })
+        //        .FirstOrDefault();
+        //    newAppointment.FirstName = userData.FirstName;
+        //    newAppointment.LastName = userData.LastName;
+        //    db.Appointments.Add(newAppointment);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index", "Home");
+        //}
     }
 }

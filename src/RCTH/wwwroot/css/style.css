@@ -112,10 +112,15 @@ header ul {
 .hidden-menu-section {
     display: none;
 }
-
-.black {
-    color: #212529;
-}
+    .hidden-menu-section ul{
+        padding:0;
+    }
+    .hidden-menu-section li {
+        margin: 5px;
+    }
+    .black {
+        color: #212529;
+    }
 
 header .navigarion-list li:hover {
     background-color: #B63B3B;
@@ -704,15 +709,26 @@ tr:hover {
     background-color: #EF5350;
 }
 
+.med-result-section{
+    display:flex;
+}
+
 
 @media all and (max-width: 768px) {
     .profile-section {
         flex-direction: column;
+        align-items:center;
     }
 
     .profile-top-boxes-wrapper{
         display:flex;
         flex-direction:column;
         align-items:center;
+    }
+    .med-result-section {
+        flex-direction:column;
+    }
+    .profile-sidebar{
+        margin:0;
     }
 }

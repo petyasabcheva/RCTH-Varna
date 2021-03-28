@@ -10,5 +10,6 @@ namespace RCTH.Models.ViewModels
     {
         [Required] public BloodRatioViewModel BloodRatio { get; set; }
         [Required] public ArticleListViewModel ArticleList { get; set; }
+        [Required] public EventListViewModel EventList { get; set; }
     }
 }

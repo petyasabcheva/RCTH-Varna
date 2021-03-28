@@ -364,7 +364,7 @@ footer {
     }
 
 /*profile details*/
-.card-list {
+/*.card-list {
     width: 100%;
 }
 
@@ -404,9 +404,9 @@ footer {
 
 .title {
     margin-left: 1rem;
-}
+}*/
 
-
+/*
 .donations-table {
     background: #e8eff1;
     width: 100%;
@@ -465,7 +465,7 @@ tr:hover {
     text-decoration: none;
     color: #000000
 }
-
+*/
 
 /*blood progress bar*/
 
@@ -581,10 +581,138 @@ tr:hover {
     margin-top: 50px;
 }
 
+
 .hiddenSegment {
     display: none;
 }
 
+.questionnaire-btn {
+    margin-top: 30px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: #4BA3C7;
+    color: white;
+    outline: none;
+}
+
 .segmentQuestions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/*Profile page*/
+.profile-section {
+    display: flex;
+}
+
+.profile-sidebar-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-sidebar-btn {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: #4BA3C7;
+    color: white;
+    outline: none;
+    display: flex;
+    justify-content: center;
+}
+
+    .profile-sidebar-btn a {
+        text-decoration: none;
+        color: white;
+    }
+
+.profile-sidebar {
+    margin: 0 50px;
+}
+/*
+.profile-main-content {
+    max-width: 50%;
+}*/
+
+.profile-top-boxes-wrapper {
+    display: flex;
+}
+
+    .profile-top-boxes-wrapper div {
+        background: #F27373;
+        color: white;
+        border-radius: 5px;
+        margin: 10px;
+        max-width: 200px;
+        min-width: 190px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size:14px;
+    }
+
+.donations-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight:600;
+}
+
+    .donations-header div{
+        margin:5px;
+    }
+.donation-whole-table{
+    margin:20px;
+}
+.donations-table {
+    background: #e8eff1;
+    width: 100%;
+    border-radius: 5px;
+}
+    .donations-table tr{
+        padding:10px;
+    }
+    .donations-table .td {
+        color: white;
+        padding: 10px 22px;
+        vertical-align: middle;
+    }
+
+    .donations-table .th {
+        color: white;
+        padding: 10px 22px;
+        vertical-align: middle;
+    }
     
+td p {
+    font-size: 12px;
+}
+
+th {
+    background-color: #FF867C;
+}
+
+tr:hover {
+    background-color: #EF5350;
+}
+
+
+@media all and (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+    }
+
+    .profile-top-boxes-wrapper{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
 }

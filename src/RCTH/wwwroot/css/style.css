@@ -164,14 +164,23 @@ footer {
 
 @media all and (max-width: 768px) {
     .footer-content {
-        flex-direction:column;
+        flex-direction: column;
     }
 }
 
+.nav-anchor-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+    .nav-anchor-btn p {
+        margin: 0;
+    }
+
 /*DROPDOWN*/
-
-
-
 .dropdown-content button {
     background: none;
     border: none;
@@ -317,7 +326,6 @@ footer {
 /*Campaigns*/
 
 .campaigns-section {
-    min-height: 40vh;
     max-width: 95%;
     margin: auto;
     padding-bottom: 30px;
@@ -530,13 +538,35 @@ tr:hover {
     }
 
 
-
 @media all and (max-width: 768px) {
     .home-articles-list {
-        flex-direction:column;
+        flex-direction: column;
     }
 }
 
+/*appointments for plasma donation*/
+
+.make-appointment-form{
+    display:flex;
+    flex-direction:column;
+}
+
+.make-appointment-form input{
+    margin:10px 0;
+    border-radius:5px;
+    border:none;
+    padding:8px;
+}
+
+    .make-appointment-form button, .make-appointment-form button:focus {
+        margin-top: 30px;
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        background: #4BA3C7;
+        color: white;
+        outline:none;
+    }
 
 
 .hiddenSegment {

@@ -16,5 +16,8 @@ namespace RCTH.Areas.Identity.Data
         [Required]
         public string PhoneNumber { get; set; }
 
+        public DateTime DateAndTime { get; set; }
+
+
     }
 }

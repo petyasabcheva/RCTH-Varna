@@ -2,6 +2,12 @@
 
 @if (User.Identity.IsAuthenticated)
 {
+    @if (User.IsInRole("Admin"))
+    {
+        <li class="navigarion-list-item">
+            <a class="nav-anchor-btn white" asp-area="" asp-controller="Admin" asp-action="AdminRedirect">Админ</a>
+        </li>
+    }
     <li class="navigarion-list-item">
         <div class="dropdown">
             <button class="dropdown-btn-custom dropbtn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -9,7 +15,7 @@
             </button>
             <div class="dropdown-content">
                 <a class="dropdown-content-item" asp-area="" asp-controller="Profile" asp-action="Details">Профил</a>
-                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new { area = string.Empty }))">
+                <form class="dropdown-content-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@(this.Url.Action("Index", "Home", new {area = string.Empty}))">
                     <button type="submit">Изход</button>
                 </form>
             </div>
@@ -20,7 +26,7 @@
 else
 {
     <li class="navigarion-list-item">
-        <a class="white" asp-area="Identity" asp-page="/Account/Login">Вход</a>
+        <a class="white nav-anchor-btn" asp-area="Identity" asp-page="/Account/Login"><p>Вход</p></a>
     </li>
 }
 

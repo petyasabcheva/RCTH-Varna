@@ -38,6 +38,22 @@ namespace RCTH.Controllers
                     DateCreated = x.DateCreated.ToString()
                 }).ToList().OrderByDescending(x => x.DateCreated).Take(3)
             };
+            //add upcoming events
+            var eventModel = new EventListViewModel()
+            {
+                Events = this._db.Events.Select(x => new EventViewModel()
+                {
+                    Id = x.Id,
+                    Description = x.Description,
+                    Location = x.Location,
+                    EventTitle = x.EventTitle,
+                    Date = x.Date
+                })
+                    .Where(x => x.Date >= DateTime.Now)
+                    .OrderBy(x => x.Date).Take(3)
+                    .ToList()
+            };
+            viewModel.EventList = eventModel;
             //insert blood ratio data into view model
             var donations = _db.Donations.Include(d => d.BloodGroup);
             double TotalBloodQuantity = donations
@@ -66,6 +82,10 @@ namespace RCTH.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+        public IActionResult Contacts()
+        {
+            return this.View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

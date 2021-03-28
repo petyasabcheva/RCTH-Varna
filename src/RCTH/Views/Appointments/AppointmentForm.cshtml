@@ -1,50 +1,18 @@
-﻿@{
+﻿@model RCTH.Models.ViewModels.AppointmentInputModel;
+@{
     this.ViewData["Title"] = "Appointment Form";
 }
 
-<div class="donationForm-container">
+<div class="appointments-form-container">
+    <h2>Заявете час за даряване на кръвна плазма</h2>
 
+    <form class="make-appointment-form" asp-controller="Appointments" asp-action="Create">
+        <input asp-for="FirstName" type="text" name="FirstName" placeholder="Име" />
+        <input asp-for="LastName" type="text" name="LastName" placeholder="Фамилия" />
+        <input asp-for="PhoneNumber" type="text" name="PhoneNumber" placeholder="Телефонен номер" />
+        <input asp-for="DateAndTime" type="datetime-local" name="DateAndTime" />
+        <button type="submit">Изпрати</button>
+    </form>
 
-    <section class="AgeVerificationForm">
-        <h2>Моля потвърдете, че имате навършени 17 години!</h2>
-        <button type="button" onclick="ProcedeForm()" class="btn btn-success">Потвърди</button>
-    </section>
-    <div class="mainFormDonation" hidden>
-    @if (User.Identity.IsAuthenticated)
-    {
-        <form asp-controller="Appointments" asp-action="RegisterDonationRequestAuthenticated">
-            <section class="loggedInUserPhoneNumber">
-                <h2>Моля, попълнете полето с вашия телефонен номер...</h2>
-                <input type="text" class="form-control" name="PhoneNumber" placeholder="Телефонен номер" />
-                <button type="button" onclick="OverviewForm(event)" class="btn btn-success">Продължи</button>
-            </section>
-
-            <section class="InfoOverview" hidden>
-                <div class="formOverviewContainer">
-                    <h1>random</h1>
-                </div>
-                <button type="submit" class="btn btn-success">Потвърди</button>
-            </section>
-        </form>
-    }
-    else
-    {
-        <form asp-controller="Appointments" asp-action="RegisterDonationRequestNonAuthenticated">
-            <section class="AnonymousUserForm">
-                <h2>Моля, попълнете полетата по-долу</h2>
-                <input type="text" class="form-control" name="FirstName" placeholder="Име" />
-                <input type="text" class="form-control" name="LastName" placeholder="Фамилия" />
-                <input type="text" class="form-control" name="PhoneNumber" placeholder="Телефонен номер" />
-                <button type="button" onclick="OverviewForm(event)" class="btn btn-success">Продължи</button>
-            </section>
-            <section class="InfoOverview" hidden>
-                <div class="formOverviewContainer">
-                    <h1>Overview of the data that is going to be sent</h1>
-                </div>
-                <button type="submit" class="btn btn-success">Потвърди</button>
-            </section>
-        </form>
-    }
-    </div>
 
 </div>

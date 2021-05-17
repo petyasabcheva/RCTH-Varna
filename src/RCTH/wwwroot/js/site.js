@@ -17,6 +17,10 @@ function OverviewForm(event) {
 
 function ShowNavbar() {
     var navbarElement = document.getElementsByClassName("hidden-menu-section")[0]
+    if (navbarElement.style.display == "") {
+        navbarElement.style.display = "none";
+    }
+
     if (navbarElement.style.display == "none") {
         navbarElement.style.display = "block";
         scrollPage();
@@ -41,4 +45,19 @@ function someFunction() {
     } else {
         navbar.classList.remove("sticky");
     }
+}
+
+function ProcedeQuestionForm(event) {
+    //hide current section
+    var parentElement = event.currentTarget.parentElement.parentElement;
+    parentElement.style.display = "none";
+    //show next section
+    var nextSection = parentElement.nextElementSibling;
+    nextSection.style.display = "block";
+}
+
+function startQuestionnaire() {
+    document.getElementById("startSection").style.display = "none"
+    var firstSegment = document.getElementsByClassName("questionnaireSegment1")[0];
+    firstSegment.style.display = "block";
 }

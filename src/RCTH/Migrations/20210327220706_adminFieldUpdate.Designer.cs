@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RCTH.Data;
 
 namespace RCTH.Migrations
 {
     [DbContext(typeof(RCTHContext))]
-    partial class RCTHContextModelSnapshot : ModelSnapshot
+    [Migration("20210327220706_adminFieldUpdate")]
+    partial class adminFieldUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +51,7 @@ namespace RCTH.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "fa5ff4f5-387d-4529-8034-0eba838de14b",
+                            ConcurrencyStamp = "4d67c8b7-ee9a-4b87-b709-6be5e1135076",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -176,9 +178,6 @@ namespace RCTH.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateAndTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -471,8 +470,8 @@ namespace RCTH.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            BirthDate = new DateTime(2021, 3, 28, 4, 5, 11, 266, DateTimeKind.Local).AddTicks(1663),
-                            ConcurrencyStamp = "9437d356-17e6-4c46-a0be-4aa6f3510278",
+                            BirthDate = new DateTime(2021, 3, 28, 0, 7, 5, 477, DateTimeKind.Local).AddTicks(7326),
+                            ConcurrencyStamp = "60c69ab4-8560-44d3-a585-dd3e65b7d815",
                             EGN = "000000",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
@@ -481,10 +480,10 @@ namespace RCTH.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHc1XhlRBAud5bkycT5/kImwDuD/pOfQ4HSETHtpjaX5/Ol1XQTaAYvGGllzyzkjAQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPDyBX/pdoeOBB2xqsQtffv3i3N0T21UL/sgglZYoAJBH5O+gIzfqA6vLlGcaoQSsQ==",
                             PhoneNumber = "+111111111111",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "b3ea0a0b-a699-4ade-aa8f-537ef27c24c8",
+                            SecurityStamp = "726ca0c9-9a34-4ddd-9868-18de863e29d1",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });

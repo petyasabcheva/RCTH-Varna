@@ -112,10 +112,15 @@ header ul {
 .hidden-menu-section {
     display: none;
 }
-
-.black {
-    color: #212529;
-}
+    .hidden-menu-section ul{
+        padding:0;
+    }
+    .hidden-menu-section li {
+        margin: 5px;
+    }
+    .black {
+        color: #212529;
+    }
 
 header .navigarion-list li:hover {
     background-color: #B63B3B;
@@ -164,14 +169,23 @@ footer {
 
 @media all and (max-width: 768px) {
     .footer-content {
-        flex-direction:column;
+        flex-direction: column;
     }
 }
 
+.nav-anchor-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+    .nav-anchor-btn p {
+        margin: 0;
+    }
+
 /*DROPDOWN*/
-
-
-
 .dropdown-content button {
     background: none;
     border: none;
@@ -251,17 +265,21 @@ footer {
 .article-wrapper {
     padding: 40px;
     border-bottom: 2px solid gray;
-    display: flex;
+    /*    display: flex;
+    flex-direction:column;*/
     justify-content: space-between;
     align-items: center;
 }
 
-    .article-wrapper p,
+    .article-wrapper p {
+        text-decoration: none;
+        color: black;
+    }
+    /*    .article-wrapper p,
     .article-wrapper h3,
     .article-wrapper a {
         width: 20%;
-    }
-
+    }*/
     .article-wrapper:hover {
         background: #e5f1fe;
     }
@@ -317,7 +335,6 @@ footer {
 /*Campaigns*/
 
 .campaigns-section {
-    min-height: 40vh;
     max-width: 95%;
     margin: auto;
     padding-bottom: 30px;
@@ -334,8 +351,25 @@ footer {
     .donation-procedure-section h2 {
         margin-bottom: 30px;
     }
+
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
 /*profile details*/
-.card-list {
+/*.card-list {
     width: 100%;
 }
 
@@ -375,9 +409,9 @@ footer {
 
 .title {
     margin-left: 1rem;
-}
+}*/
 
-
+/*
 .donations-table {
     background: #e8eff1;
     width: 100%;
@@ -436,37 +470,9 @@ tr:hover {
     text-decoration: none;
     color: #000000
 }
-
+*/
 
 /*blood progress bar*/
-.progress1 {
-    background: rgba(0, 0, 0, 0.1);
-    justify-content: flex-start;
-    border-radius: 100px;
-    align-items: center;
-    position: relative;
-    padding: 0 5px;
-    display: flex;
-    height: 40px;
-    width: 100%;
-}
-
-.progress-value1 {
-    animation: load 3s normal forwards;
-    box-shadow: 0 10px 40px -10px #fff;
-    border-radius: 100px;
-    background: #B61827;
-    height: 30px;
-    width: 0;
-}
-
-    .progress-value1 span {
-        color: #fff;
-        font-size: 14px;
-        text-align: center;
-        display: block;
-    }
-
 
 /*blood bar colors*/
 @keyframes load {
@@ -476,6 +482,8 @@ tr:hover {
 }
 
 .progress {
+    max-width: 95%;
+    margin: auto;
     height: 2rem;
     border-radius: 0.65rem;
     font-size: 1rem;
@@ -486,7 +494,7 @@ tr:hover {
 }
 
 .bloodcolorA {
-    background-color: #e50000;
+    background-color: #b20000;
 }
 
 .bloodcolorB {
@@ -539,10 +547,209 @@ tr:hover {
     }
 
 
-
 @media all and (max-width: 768px) {
     .home-articles-list {
-        flex-direction:column;
+        flex-direction: column;
     }
 }
 
+/*appointments for plasma donation*/
+
+.make-appointment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+    .make-appointment-form input {
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+        padding: 8px;
+    }
+
+    .make-appointment-form button, .make-appointment-form button:focus {
+        margin-top: 30px;
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        background: #4BA3C7;
+        color: white;
+        outline: none;
+    }
+
+/*Contacts*/
+/*.map-wrapper {
+    margin-bottom: 50px;
+}
+*/
+.contacts-wrapper div {
+    margin-top: 50px;
+}
+
+
+.hiddenSegment {
+    display: none;
+}
+
+.questionnaire-btn {
+    margin-top: 30px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: #4BA3C7;
+    color: white;
+    outline: none;
+}
+
+.segmentQuestions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/*Profile page*/
+.profile-section {
+    display: flex;
+}
+
+.profile-sidebar-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-sidebar-btn {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background: #4BA3C7;
+    color: white;
+    outline: none;
+    display: flex;
+    justify-content: center;
+}
+
+    .profile-sidebar-btn a {
+        text-decoration: none;
+        color: white;
+    }
+
+.profile-sidebar {
+    margin: 0 50px;
+}
+/*
+.profile-main-content {
+    max-width: 50%;
+}*/
+
+.profile-top-boxes-wrapper {
+    display: flex;
+}
+
+    .profile-top-boxes-wrapper div {
+        background: #F27373;
+        color: white;
+        border-radius: 5px;
+        margin: 10px;
+        max-width: 200px;
+        min-width: 190px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size:14px;
+    }
+
+.donations-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight:600;
+}
+
+    .donations-header div{
+        margin:5px;
+    }
+.donation-whole-table{
+    margin:20px;
+}
+.donations-table {
+    background: #e8eff1;
+    width: 100%;
+    border-radius: 5px;
+}
+    .donations-table tr{
+        padding:10px;
+    }
+    .donations-table .td {
+        color: white;
+        padding: 10px 22px;
+        vertical-align: middle;
+    }
+
+    .donations-table .th {
+        color: white;
+        padding: 10px 22px;
+        vertical-align: middle;
+    }
+    
+td p {
+    font-size: 12px;
+}
+
+th {
+    background-color: #FF867C;
+}
+
+tr:hover {
+    background-color: #EF5350;
+}
+
+.med-result-section{
+    display:flex;
+}
+
+
+@media all and (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+        align-items:center;
+    }
+
+    .profile-top-boxes-wrapper{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    .med-result-section {
+        flex-direction:column;
+    }
+    .profile-sidebar{
+        margin:0;
+    }
+}
+
+.redirectButtons > li > a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 15px
+}
+.redirectButtons > li {
+    text-decoration-color: #000000;
+    color: black;
+    background-color: #B63B3B;
+    min-width: 150px;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+    padding: 1rem
+}
+
+    .redirectButtons > li:hover {
+        background-color: #660000
+    }

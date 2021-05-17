@@ -5,106 +5,125 @@
 }
 
 
-<div class="container-fluid">
-    <div class="row">
-        <partial name="ProfileSidebarPartial"/>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 my-3">
-            <div class="card-list">
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+<section class="profile-section">
+    <partial name="ProfileSidebarPartial" />
+    <section class="profile-main-content">
+        <div class="profile-top-boxes-wrapper">
+            <div>
 
-                        @if (DateTime.Now >= @Model.MinDateNextDonation || @Model.MinDateNextDonation == null)
+                @if (DateTime.Now >= @Model.MinDateNextDonation || @Model.MinDateNextDonation == null)
+                {
+                    <div class="">
+                        <strong>Имате възможност за кръводарение</strong>
+                    </div>
+                }
+                else
+                {
+                    <div class="">
+                        <strong>Възможност за дарение след:</strong>
+                        <p>@Model.MinDateNextDonation</p>
+                    </div>
+                }
+
+            </div>
+
+            <div>
+                @if (DateTime.Now >= @Model.MinDateNextDonation || @Model.MinDateNextDonation == null)
+                {
+                    <div class="">
+                        <strong>Имате възможност за кръводарение</strong>
+                    </div>
+                }
+                else
+                {
+                    <div class="">
+                        <strong>
+                            Препоръчителна дата за следващо дарение:
+                        </strong>
+                        <p>@Model.MinDateNextDonation</p>
+                    </div>
+                }
+
+            </div>
+            <div>
+                <div class="">
+                    <strong>Кръвна група:</strong>
+                    @if (Model.BloodGroup == null)
+                    {
+                        <p>Неизвестна</p>
+                    }
+                    else
+                    {
+                        <p>@Model.BloodGroup.Name</p>
+                    }
+                </div>
+            </div>
+
+        </div>
+
+        <div class="">
+            <div class="donation-whole-table">
+                <header class="donations-header">
+                    <div class="title">Общо</div>
+                    <div>|</div>
+                    <div class="count">
+                        @if (@Model.DonationData.Count == 1)
                         {
-                            <div class="card green">
-                                <h3>Имате възможност за кръводарение</h3>
+                            <div>
+                                @Model.DonationData.Count Дарение
                             </div>
                         }
                         else
                         {
-                            <div class="card grey">
-                                <h3>Възможност за дарение след @Model.MinDateNextDonation</h3>
-                            </div>
-                        }
+                            if (Model.DonationData.Count == 0)
+                            {
+                                <div>Няма данни</div>
+                            }
+                            else
+                            {
+                                <div>
+                                    @Model.DonationData.Count Дарения
+                                </div>
+                            }
 
+                        }
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
-                        <div class="card red">
-                            <p>Кръвна група:</p>
-                            @if (Model.BloodGroup == null)
-                            {
-                                <p>Неизвестна</p>
-                            }
-                            else
-                            {
-                                <p>@Model.BloodGroup.Name</p>
-                            }
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="donations mb-4">
-                <div class="donations-inner">
-                    <header class="donations-header">
-                        <div class="title">Дарения |</div>
-                        <div class="count">
-                            @if (@Model.DonationData.Count == 1)
-                            {
-                            <div>
-                                @Model.DonationData.Count Дарение
-                            </div>
-                            }
-                            else
-                            {
-                                if (Model.DonationData.Count == 0)
-                                {
-                                    <div>Няма данни</div>
-                                }
-                                else
-                                {
-                                    <div>
-                                        @Model.DonationData.Count Дарения
-                                    </div>
-                                }
-                                
-                            }
-                        </div>
-                    </header>
-                    <table class="donations-table">
-                        <thead>
+                </header>
+                <table class="donations-table">
+                    <thead>
                         <tr>
                             <th class="text-center">Id</th>
                             <th>Количество</th>
                             <th>Дата</th>
                             <th>Получил</th>
                         </tr>
-                        </thead>
-                        @foreach (var donation in Model.DonationData)
-                        {
-                            <tr>
-                                <td class="text-center">
-                                    <p>@donation.Id</p>
-                                </td>
-                                <td>
-                                    <p>@donation.Quantity ml</p>
-                                </td>
-                                <td>
-                                    <p>@donation.Date</p>
-                                </td>
-                                <td>
-                                    @if (@donation.Receiver == null)
-                                    {
-                                        <p>Неизвестен</p>
-                                    }
-                                    else
-                                    {
-                                        <p>@donation.Receiver</p>
-                                    }
-                                </td>
-                            </tr>
-                        }
-                    </table>
-                </div>
+                    </thead>
+                    @foreach (var donation in Model.DonationData)
+                    {
+                        <tr>
+                            <td class="text-center">
+                                <p>@donation.Id</p>
+                            </td>
+                            <td>
+                                <p>@donation.Quantity ml</p>
+                            </td>
+                            <td>
+                                <p>@donation.Date</p>
+                            </td>
+                            <td>
+                                @if (@donation.Receiver == null)
+                                {
+                                    <p>Неизвестен</p>
+                                }
+                                else
+                                {
+                                    <p>@donation.Receiver</p>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </table>
             </div>
-        </main>
-    </div>
-</div>
+        </div>
+    </section>
+</section>

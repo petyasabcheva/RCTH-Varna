@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using RCTH.Data;
 
 namespace RCTH.Areas.Administration.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Administration")]
     public class ArticlesController : Controller
     {
@@ -57,6 +59,7 @@ namespace RCTH.Areas.Administration.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Content,AuthorName,DateCreated")] Article article)
         {
+            article.DateCreated = DateTime.Now;
             if (ModelState.IsValid)
             {
                 _context.Add(article);
